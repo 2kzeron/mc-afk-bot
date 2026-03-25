@@ -25,6 +25,11 @@ function createBot() {
     });
 
     bot.on('spawn', () => console.log('Bot has joined the server!'));
+  // Anti-AFK: Swings arm every 60 seconds so the server thinks the bot is active
+setInterval(() => {
+    bot.swingArm();
+}, 60000);
+
     
     // Automatically reconnect if the bot gets kicked
     bot.on('end', () => {
